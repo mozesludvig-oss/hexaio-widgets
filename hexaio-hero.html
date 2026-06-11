@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HexaIO HQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#A5DDA0;
+    --lime:#D0E78D;
+    --navy:#13243F;
+    --navy-soft:#2A3F66;
+    --cyan:#2BA7C4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{
+    background:transparent;
+    font-family:"Manrope",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .hero{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    padding:26px 34px;
+    background:linear-gradient(100deg, var(--green) 0%, var(--lime) 100%);
+    isolation:isolate;
+  }
+  /* faint hexagon field */
+  .hexfield{
+    position:absolute; inset:0; z-index:-1;
+    opacity:.45;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='112' height='130' viewBox='0 0 112 130'><path d='M56 2 L106 31 L106 99 L56 128 L6 99 L6 31 Z' fill='none' stroke='%23ffffff' stroke-opacity='0.5' stroke-width='2'/></svg>");
+    background-size:112px 130px;
+    -webkit-mask-image:linear-gradient(95deg, transparent 0%, #000 40%, #000 100%);
+            mask-image:linear-gradient(95deg, transparent 0%, #000 40%, #000 100%);
+  }
+  .glow{
+    position:absolute; z-index:-1;
+    width:340px; height:340px; border-radius:50%;
+    top:-150px; right:-90px;
+    background:radial-gradient(circle, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 68%);
+    filter:blur(6px);
+    animation:drift 14s ease-in-out infinite;
+  }
+  @keyframes drift{
+    0%,100%{transform:translate(0,0) scale(1)}
+    50%{transform:translate(-50px,35px) scale(1.12)}
+  }
+  h1{
+    font-size:clamp(18px,2.4vw,22px);
+    font-weight:700; line-height:1.2;
+    letter-spacing:-.01em;
+    color:var(--navy);
+    margin-bottom:7px;
+    display:flex; align-items:center; gap:9px;
+  }
+  h1 .wave{font-size:1.05em}
+  p.lead{
+    font-size:clamp(14px,1.5vw,15px);
+    line-height:1.5; font-weight:500;
+    color:var(--navy-soft);
+  }
+  @media (prefers-reduced-motion: reduce){ .glow{animation:none} }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hexfield"></div>
+    <div class="glow"></div>
+    <h1><span class="wave">👋</span> Üdv a HexaIO HQ-n!</h1>
+    <p class="lead">A céges kezdőlapod — hírek, közös tudás és eszközök egy helyen.</p>
+  </div>
+</body>
+</html>
